@@ -1,0 +1,7 @@
+## Title: Inventory Recorder
+## Author: Randactyl
+## APIVersion: 100009
+## Version: 0.1
+## SavedVariables: InventoryRecorderData
+
+InventoryRecorder.lua
