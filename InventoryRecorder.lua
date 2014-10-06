@@ -7,19 +7,19 @@ function IR_Register()
 
 		for _,v in pairs(ZO_PlayerInventoryBackpack.data) do
 			local exists = false
-			local pos = nil
+			local pos = 0
 
 			for i,w in pairs(IRData.inventory) do
+				pos = pos + 1
 				if w.itemInstanceId == v.data.itemInstanceId then
 					exists = true
-					pos = i
 					break
 				end
 			end
 
 			if exists then
-				i.stackCount = i.stackCount + v.data.itemInstanceId
-				i.stackSellPrice = i.sellPrice * i.stackCount
+				IRData.inventory[pos].stackCount = IRData.inventory[pos].stackCount + v.data.stackCount
+				IRData.inventory[pos].stackSellPrice = IRData.inventory[pos].sellPrice * IRData.inventory[pos].stackCount
 			else
 				t.age = v.age
 				t.equipType = v.data.equipType
@@ -28,7 +28,6 @@ function IR_Register()
 				t.itemInstanceId = v.data.itemInstanceId
 				t.itemType = v.data.itemType
 				t.name = v.data.name
-				t.nameWithQuantity = v.data.nameWithQuantity
 				t.quality = v.data.quality
 				t.rawName = v.data.rawName
 				t.requiredLevel = v.data.requiredLevel
